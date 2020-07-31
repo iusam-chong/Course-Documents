@@ -28,4 +28,71 @@ app.listen(80);
 console.log("Web伺服器就緒，開始接受用戶端連線.");
 console.log("「Ctrl + C」可結束伺服器程式.");
 
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+	host : '127.0.0.1',
+	user : 'root',
+	password : 'root',
+	database : 'labDB',
+	port : '8889'
+	// socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
+});
 
+connection.connect(function(err) {
+	// if (err) throw err;
+	if (err) {
+		console.log(JSON.stringify(err));
+		return;
+	}
+});
+
+app.get("/home/news", function (request, response) {
+
+	connection.query('select * from news', 
+		'',
+		function(err, rows) {
+			if (err)	{
+				console.log(JSON.stringify(err));
+				return;
+			}
+			
+			response.send(JSON.stringify(rows));
+		}
+	);
+    
+})
+
+app.post("/home/news", function (request, response) {
+
+	connection.query(
+		"insert into news set title = ?, ymd = ? ", 
+			[
+				request.body.title, 
+				request.body.ymd
+			]);
+	response.send("row inserted.");
+    
+})
+
+app.put("/home/news", function (request, response) {
+
+	connection.query(
+		"update news set title = ?, ymd = ? where newsId = " 
+		    + request.body.newsId, 
+			[
+				request.body.title, 
+				request.body.ymd
+			]);
+	response.send("row updated.");
+    
+})
+
+app.delete("/home/news", function (request, response) {
+
+	connection.query(
+		"delete from news where newsId = " + request.body.newsId,
+			[]
+		);
+	response.send("row deleted.");
+    
+})
