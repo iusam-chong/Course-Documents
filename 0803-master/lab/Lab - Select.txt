@@ -133,6 +133,8 @@ select productID, ProductName, UnitPrice
   order by UnitPrice DESC
   limit 3;
 
+/* default ASC 小到大/遞增， DESC 大到小/遞減 */
+
 /* 230 
   為什麼下列的指令傳回空集合?
  */ 
@@ -261,3 +263,33 @@ select CategoryID, ProductID, UnitPrice,
   from products as o
   order by CategoryID, ProductID
 
+/*
+  從產品表單查詢來自USA的供應商
+*/
+SELECT productID, productname, unitprice 
+	FROM products
+    WHERE SupplierID IN 
+    (
+    	SELECT SupplierID
+	  	FROM suppliers
+      WHERE country IN ('USA')
+    )
+
+/*
+  計算產品價格與產品平均價格的價差
+*/
+SELECT productID, productName, unitprice,
+  unitprice - (SELECT AVG(unitprice) FROM products) AS diffPrice
+  FROM products
+
+/*
+  產品跟自己的產品類別做價差比較
+*/
+SELECT categoryID, (select p.categoryID), productID, productName, unitprice,
+  unitprice - (SELECT AVG(unitprice) FROM products where categoryID = p.categoryID) AS diffPrice
+  FROM products as p
+
+
+SELECT categoryID, productID, productName, unitprice,
+  unitprice - (SELECT AVG(unitprice) FROM products where categoryID = TRUE) AS diffPrice
+  FROM products as p
