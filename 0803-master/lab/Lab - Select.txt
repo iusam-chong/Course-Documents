@@ -289,7 +289,33 @@ SELECT categoryID, (select p.categoryID), productID, productName, unitprice,
   unitprice - (SELECT AVG(unitprice) FROM products where categoryID = p.categoryID) AS diffPrice
   FROM products as p
 
+/*
+  GROUP BY 用法
+*/
+SELECT categoryID , AVG(UnitPrice) AS AVGPrice
+	FROM products
+	GROUP BY categoryID HAVING AVG(UnitPrice) >= 30
 
-SELECT categoryID, productID, productName, unitprice,
-  unitprice - (SELECT AVG(unitprice) FROM products where categoryID = TRUE) AS diffPrice
-  FROM products as p
+/*
+  !!!!!!!!!!!!!!!!!! GROUP BY 有的欄位才能寫寫在 SELECT
+*/
+SELECT orderid, ProductID, SUM(Quantity)
+	FROM `Order Details`
+	GROUP BY orderid, ProductID WITH ROLLUP 
+
+/* MySQL 5.7.26版本無法讓WITH ROLLUP與ORDER BY混用，8.0.12版本可以，參考來源 https://jira.mariadb.org/browse/MDEV-17807  */
+/* 預設的 JOIN = INNER JOIN, FULL OUTER JOIN = OUTER JOIN, LEFT OUTHER JOIN = LEFT JOIN, RIGHT OUTHER JOIN = RIGHT JOIN, */
+
+/*
+  多重JOIN 
+*/
+SELECT DISTINCT c.CustomerID, c.CompanyName, p.productID, p.ProductName
+	FROM customers AS c 
+		JOIN orders AS o
+			ON o.CustomerID = c.CustomerID
+    	JOIN `order details` AS od
+			ON od.orderID = o.orderID
+		JOIN products AS p
+			ON p.productID = od.productID
+	ORDER BY c.CustomerID, p.ProductID
+
