@@ -27,7 +27,6 @@ update products
   set UnitPrice = UnitPrice * 1.05
   where CategoryID = 1
 
-
 /* 140
   對不起, 不小心講錯了, 不是產品類別(CategoryID) = 1 啦..., 什麼!?
   你已經改了...., hmmm..., 可以麻煩請你改回來嗎?
