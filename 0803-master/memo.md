@@ -1,13 +1,48 @@
-## 重點指令摘要
+# 重點指令摘要
 
-create database 'database_name'
-use 'database_name'
+## 建立資料庫
+- CREATE database database_name
+- USE database_name
 
-alter table 'table_name'
-    add 
-    modify
-    drop
+## 建立資料表-範例
+- CREATE TABLE friends
+- (
+-   fid int auto_increment not null primary key,
+-   cname char(10) null,
+-   ename varchar(30) null,
+-   tel varchar(30) null
+- );
 
-set sql_mode = 'traditional'
+## 修改資料表結構-範例
+- ALTER table table_name
+    ### 新增資料欄位
+    - ADD email varchar(30) default 'someone@somewhere.com'
+    ### 修改資料欄位屬性
+    - MODIFY email varchar(40) default 'who@where.com'
+    ### 刪除資料欄位
+    - DROP column email
 
-index 
+## 顯示資料表
+- DESCRIBE friends 
+- 或者簡寫 DESC friends
+
+## 新增資料到資料表-範例
+- INSERT INTO Shippers
+    - (ShipperID, CompanyName, Phone)
+    - values (4, 'Never Lose', '(040) 0048126')
+
+## 修改資料-範例
+- UPDATE Shippers
+- SET CompanyName = 'Never Lost', 
+    - Phone = '(123) 1234567'
+    - where ShipperID = 4
+
+## 刪除資料-範例
+- DELETE FROM Shippers
+    - where ShipperID = 4
+
+## 設定SQL模式
+- SET sql_mode = 'traditional'
+
+## 索引
+- index 
