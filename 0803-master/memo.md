@@ -22,10 +22,6 @@
     ### 刪除資料欄位
     - DROP column email
 
-## 顯示資料表
-- DESCRIBE friends 
-- 或者簡寫 DESC friends
-
 ## 新增資料到資料表-範例
 - INSERT INTO Shippers
     - (ShipperID, CompanyName, Phone)
@@ -46,3 +42,20 @@
 
 ## 索引
 - index 
+
+## 設定字元集
+- SHOW VARIABLES LIKE 'char%'
+- SET NAME big5
+
+## 查看資料庫狀態
+- STATUS ；
+
+## 踢掉其他使用者
+- KILL id ;
+
+## 顯示資料庫、資料表
+- SHOW DATABASES ；
+
+## 顯示資料表
+- DESCRIBE friends 
+- 或者簡寫 DESC friends

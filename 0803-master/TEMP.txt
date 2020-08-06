@@ -1,0 +1,43 @@
+DROP TABLE orders
+CREATE TABLE orders (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	data INT
+)
+
+ALTER TABLE orders
+	ADD CONSTRAINT CHECK_DATA CHECK (data >= 0)
+
+INSERT into orders (customerID,data) VALUES (1,100)
+INSERT into orders (customerID,data) VALUES (2,-200)
+INSERT into orders (customerID,data) VALUES (3,-300)
+
+SELECT * FROM orders 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+USE test ;
+DROP TABLE customer;
+CREATE TABLE customer
+(
+    customerID int AUTO_INCREMENT PRIMARY KEY,
+    companyName varchar(20)
+);
+
+INSERT INTO customer(customerID, companyName) 
+	VALUES(1,'AAA'),(2,'BBB'),(3,'CCC');
+    
+SELECT * FROM customer
+
+ALTER TABLE orders
+    ADD CONSTRAINT fk_customer_orders
+    FOREIGN KEY (customerID) REFERENCES customer (customerID)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+
+ALTER TABLE customer ADD CONSTRAINT uc UNIQUE (companyName);
+INSERT INTO customer VALUES (7,'AAA');
+ALTER TABLE customer DROP CONSTRAINT uc;
+
+CREATE UNIQUE INDEX idx_company ON customer (companyName);
+INSERT INTO customer VALUES (7,'AAA');
+DROP INDEX idx_company ON customer;
