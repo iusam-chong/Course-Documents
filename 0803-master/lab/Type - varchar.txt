@@ -15,3 +15,5 @@ insert into Lab (data) values (' 12 ');
 select id, concat('*', data, '*') as dataField
   from Lab;
 
+
+insert into Lab (data) values ('這裏有六個字');

@@ -59,3 +59,6 @@ select * from categories;
 --mysqldump -u root northwind > c:\lab\bak.sql
 
 /Users/cy0001210/Documents/GitHub/Course-Documents/0803-master
+
+c:\\temp 
+mysqldump -uroot  --databases db0806 > C:\temp\test_bat.txt
