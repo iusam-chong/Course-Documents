@@ -11,24 +11,41 @@
     <div id="debug"></div>
 
     <script>
-        
-        Box = function () {
-            this.color = 'black';
-            this.paint = function (value, cb) {
-                // delay 3 seconds.
-                // var now = new Date().getTime();
-                // while (new Date().getTime() < now + 3000) { 
-                //	/* do nothing */ 
-                //} 
-                this.color = value;
-                cb();
+       
+       "use strict";
+        class CAnimal {
+            constructor(weightValue = 1) {
+                this._weight = 0;
+                this.weight = weightValue;
+            }
+            get weight() {
+                return this._weight;
+            }
+            set weight(weightValue) {
+                if (weightValue > 0) {
+                    this._weight = weightValue;
+                }
+            }
+            makeSound() {
+                alert("Animal: ...");
             }
         }
 
-        var objBox = new Box();
-        objBox.paint("RoyalBlue", function () {
-            debug.innerHTML = objBox.color;
-        });
+        class CDog extends CAnimal {
+            constructor(location = "Earth", weightValue) {
+                super(weightValue);
+                this.location = location;
+            }
+            makeSound() {
+                // super.makeSound();
+                alert("Dog barking!");
+            }
+        }
+
+        //let obj = new CDog(null, 3);
+        let obj = new CDog(undefined, 3);
+        alert(obj.weight);
+        alert(obj.location);
 
     </script>
 

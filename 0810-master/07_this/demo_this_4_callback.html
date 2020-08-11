@@ -10,19 +10,19 @@
 
     <script>
 
-        class Creature {
-            constructor(weightValue = 1) {
-                this.name = "cicada";
-            }
-            makeSound() {
-                console.log(this.name);
-                setTimeout(function () {
-                    console.log(this.name);  // nothing?
-                }, 1000)
-            }
-        }
-        const obj = new Creature();
-        obj.makeSound();
+        // class Creature {
+        //     constructor(weightValue = 1) {
+        //         this.name = "cicada";
+        //     }
+        //     makeSound() {
+        //         console.log(this.name);
+        //         setTimeout(function () {
+        //             console.log(this.name);  // nothing?
+        //         }, 1000)
+        //     }
+        // }
+        // const obj = new Creature();
+        // obj.makeSound();
 
 
         // class Creature {
@@ -41,19 +41,19 @@
         // obj.makeSound();
 
 
-        // class Creature {
-        //     constructor(weightValue = 1) {
-        //         this.name = "cicada";
-        //     }
-        //     makeSound() {
-        //         console.log(this.name);
-        //         setTimeout(() => {
-        //             console.log(this.name);
-        //         }, 1000)
-        //     }
-        // }
-        // const obj = new Creature();
-        // obj.makeSound();
+        class Creature {
+            constructor(weightValue = 1) {
+                this.name = "cicada";
+            }
+            makeSound() {
+                console.log(this.name);
+                setTimeout(() => {
+                    console.log(this.name);
+                }, 1000)
+            }
+        }
+        const obj = new Creature();
+        obj.makeSound();
 
 
     </script>

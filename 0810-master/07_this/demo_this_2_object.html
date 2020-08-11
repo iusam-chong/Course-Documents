@@ -10,23 +10,23 @@
         // 物件.函式()
         // this 指向「使用該函式的物件」
         
-        function showFullName() {
+        function showName() {
             debug.innerText = this.firstName + " " + this.lastName;
         }
         
         var chien = {
             firstName: "Wolfgang",
             lastName: "Chien",
-            toString: showFullName
+            toString: showName
         }
         
         var lin = {
             firstName: "Jeremy",
             lastName: "Lin",
-            toString: showFullName
+            toString: showName
         }
         
-        // lin.toString();
+        lin.toString();
         chien.toString();
         
     </script>
