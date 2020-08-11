@@ -24,10 +24,22 @@ test.onclick = function () {
     var data = [3, 0, 1, 8, 7, 2, 5, 4, 9, 6];
 
     // 你的任務程式...
-    
 
+    var even = data.filter(checkEven) ;
     
+    function checkEven(num){
+        if(num % 2 == 0) 
+            return num ;
+    }
+    
+    // var evenNumber = data.filter(function (x) {
+    //     return (x % 2 == 0);
+    // });
 
+    // var evenNumber = data.filter(x => x % 2 == 0);
+
+
+    report.innerText = even.toString();
 
 }  // end of test.onclick
 

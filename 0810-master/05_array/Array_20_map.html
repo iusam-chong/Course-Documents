@@ -25,9 +25,18 @@ test.onclick = function () {
 
     // 你的任務程式...
     
-    var dataList = [];
+    var dataList = data.map(item) ;
     
+    function item(num) {
+        return num + 10 ;
+    }
 
+    // var dataList = data.map(function (item) {
+    //     return item + 10;
+    // })
+    
+    // var dataList = data.map(item => item + 10);
+     
     report.innerText = dataList.toString();
 
 

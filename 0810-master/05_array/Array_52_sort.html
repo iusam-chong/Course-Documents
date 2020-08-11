@@ -22,12 +22,34 @@ test.onclick = function () {
     // 數字 2 是最大的，
     // 下列程式該怎麼修改呢?
     
-    var data = [3, 0, 1, 8, 7, 2, 5, 4, 9, 6];
+    var data = [3, 0, 2, 8, 7, 2, 5, 4, 9, 6];
     
     // 你的任務程式:
-    data.sort();
-
     
+    // data.sort(function(x,y){
+    //     if(x == 2)
+    //         return 1 ;
+    //     else if(y == 2)
+    //         return -1 ;
+    //     else
+    //         return x - y ;
+    // });
+
+    data.sort(function(x,y){
+        if (chkEven(x) && !chkEven(y))
+            return 1 ;
+        else if (chkEven(y) && !chkEven(x))
+            return -1 ;
+        else
+            return y - x ;
+    });
+
+    function chkEven(num){
+        if (num % 2 == 0)
+            return 1 ;
+    }
+
+
     report.innerText = data.toString();
 
 }  // end of test.onclick

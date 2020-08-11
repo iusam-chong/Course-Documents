@@ -26,10 +26,14 @@ test.onclick = function () {
 
     // 你的任務程式...
     
-    
-    
+    data.forEach(count) ;
 
-    report.innerText = sum;
+    function count(data){
+        report.innerHTML = sum;
+        sum += data ;
+    }    
+
+    report.innerHTML = sum;
 
 
 }  // end of test.onclick
