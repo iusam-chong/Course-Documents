@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    <div id="debug"></div>
+    <script>
+    
+        function showStar(count) {
+            if(checkRange(count)){
+                let star = "" ;
+                for(let i = 0 ; i < count ; i++){
+                    star += "*" ;
+                }
+                alert(star) ;
+            } ;
+        } 
+        
+        function checkRange(number){
+            if (number <= 0 || number > 21)
+                return false ;
+            if (number == 4)
+                return false ;    
+        }
+
+        function showError(e){
+            alert(e) ;
+        }
+
+        showStar(4);
+
+    </script>
+</body>
+</html>
