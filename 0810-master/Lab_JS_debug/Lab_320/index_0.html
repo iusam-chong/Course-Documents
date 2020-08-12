@@ -17,7 +17,9 @@
 
 
     <script>
+            window.onload = loadImg ;
 
+        function loadImg(){
             var c = document.getElementById("canvasLab");
             var ctx = c.getContext("2d");
 
@@ -25,7 +27,8 @@
             ctx.stroke();
             ctx.clip();
             ctx.drawImage(imgRabbit, 0, 0);
-
+        }
+            
         
     </script>
 

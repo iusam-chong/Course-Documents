@@ -43,12 +43,12 @@
         ];
     
     function sendMail(mailAddress) {
-        var result = 200;
+        var result = 1;
         try {
             $("#report").append(mailAddress.toString() + "<br>");
         }
         catch (e) {
-            result = -404;
+            result = -1;
             $("#report").append(e.message + "<br>");
         }
         return result;
@@ -56,7 +56,7 @@
     
     for (i = 0; i < mailList.length; i++) {
         if (sendMail(mailList[i]) < 0) {
-            sendMail(mailList[i]);
+           sendMail(mailList[i]);
         }
     }
     

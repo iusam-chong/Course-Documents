@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="debug"></div>
+
+    <script>
+       
+       Box = function () {
+            this.color = 'black';
+            this.paint = function (value, cb) {
+                // delay 3 seconds.
+                //var now = new Date().getTime();
+                //while (new Date().getTime() < now + 3000) { 
+                //	/* do nothing */ 
+                //} 
+                this.color = value;
+                cb();
+            }
+        }
+
+
+        var objBox = new Box();
+        objBox.paint("RoyalBlue", function () {
+            debug.innerHTML = objBox.color;
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-function longTimeWork(workFine = true, errorMessage = "test") {
+function longTimeWork(workFine = true, errorMessage = "default-message") {
     return new Promise( (resolve, reject) => {
         setTimeout( () => {
             (workFine) ? resolve(200) : reject(errorMessage);
@@ -7,12 +7,12 @@ function longTimeWork(workFine = true, errorMessage = "test") {
 }
 
 function usingLongTimeWork() {
-    longTimeWork(true, "test")  // try true/false
+    longTimeWork(false, "error-messsage")  // try true/false
     .then(function (e) {
-        console.log(e);
+        console.log(e) ;
     })
     .catch(function (e) {
-        console.log(e);
+        console.log(e) ;
     })
 }
 

@@ -47,13 +47,20 @@
         "lionel.messi@gmail.com"
         ];
     
+    for (i = 0; i < mailList.length; i++) {
+        try {
+        
+            sendMail(mailList[i]);
+        }catch{
+            sendMail("Failed");
+        }
+    }
+
     function sendMail(mailAddress) {
         $("#report").append(mailAddress.toString() + "<br>");
     }
     
-    for (i = 0; i < mailList.length; i++) {
-        sendMail(mailList[i]);
-    }
+   
     
     
     
