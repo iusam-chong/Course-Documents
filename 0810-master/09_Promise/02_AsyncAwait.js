@@ -1,7 +1,7 @@
 function longTimeWork(workFine = true, errorMessage = "test") {
     return new Promise( (resolve, reject) => {
         setTimeout( () => {
-            (workFine) ? resolve(200) : reject(errorMessage);
+            (workFine) ? resolve(200) : (errorMessage);
         }, 1000);
     })
 }

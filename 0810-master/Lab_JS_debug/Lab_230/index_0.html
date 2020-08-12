@@ -29,35 +29,64 @@
 
     </div>
 
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
-<script>
-    
-    var mailList = [
-        "jeremy.lin@gmail.com", 
-        "derek.jeter@gmail.com",
-        "chien-ming.wang@gmail.com",
-        undefined,
-        "lionel.messi@gmail.com"
-        ];
-    
-    function sendMail(mailAddress) {
-        try {
-            $("#report").append(mailAddress.toString() + "<br>");
+    <script>
+
+        // var mailList = [
+        //     "jeremy.lin@gmail.com", 
+        //     "derek.jeter@gmail.com",
+        //     "chien-ming.wang@gmail.com",
+        //     undefined,
+        //     "lionel.messi@gmail.com"
+        //     ];
+
+        // function sendMail(mailAddress) {
+        //     try {
+        //         $("#report").append(mailAddress.toString() + "<br>");
+        //     }
+        //     catch (e) {
+        //         $("#report").append(e.message + "<br>");
+        //         return false ;   
+        //     }
+        // }
+
+        // mailList.forEach(function(mailList){
+        //     if(sendMail(mailList) === false){
+        //         sendMail(mailList) ;
+        //     };
+        // });
+
+        // debugger
+        function sendMail(mailAddress) {
+            try {
+                $("#report").append(mailAddress.toString() + "<br>");
+            }
+            catch (e) {
+                $("#report").append(e.message + "<br>");
+                return false ;   
+            }
         }
-        catch (e) {
-            $("#report").append(e.message + "<br>");
+        
+        async function setupConfig() {
+            var mailList = [
+                "jeremy.lin@gmail.com",
+                "derek.jeter@gmail.com",
+                undefined,
+                "chien-ming.wang@gmail.com",
+                undefined,
+                "lionel.messi@gmail.com"
+            ];
+            mailList.forEach(function(mailList){
+                if(sendMail(mailList) === false){
+                    sendMail(mailList) ;
+                };
+            });
         }
-    }
-    
-    for (i = 0; i < mailList.length; i++) {
-        sendMail(mailList[i]);
-    }
-    
-    
-    
-</script>
+        setupConfig();
+
+    </script>
 
 </body>
 
