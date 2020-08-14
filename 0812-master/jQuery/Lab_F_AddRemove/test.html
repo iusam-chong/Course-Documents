@@ -95,16 +95,17 @@
             })
 
             $("#latestNews li").dblclick(function () {
-                var $li = $(this).detach();
-                $("#lastestNews").append($li);
-            })
-
-            $("#latestNews li").dblclick(function () {
-                var iIndex = $(this).index();
-                showToast("", iIndex);
-                var $li = $("#latestNews li").eq(iIndex).detach();
+                var $li = $(this).remove();
                 $("#latestNews").append($li);
             })
+
+            // debugger
+            // $("#latestNews li").dblclick(function () {
+            //     var iIndex = $(this).index();
+            //     showToast("", iIndex);
+            //     var $li = $("#latestNews li").eq(iIndex).detach();
+            //     $("#latestNews").append($li);
+            // })
 
         })  // end of init.
 
