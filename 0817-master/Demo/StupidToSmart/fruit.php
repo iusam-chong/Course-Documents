@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<h1>今天是星期<?php echo $sWeek ?></h1>
+<h1>今天是星期<?= $sWeek ?></h1>
 <hr>
 <img src="Fruit<?php echo $nWeek ?>.gif" />
 </body>
