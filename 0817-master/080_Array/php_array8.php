@@ -5,6 +5,11 @@
 	
 	echo "<br />";
 	
+?>
+
+<pre>
+<?php 
 	natsort($testArray);
 	var_dump($testArray);
-?>
+	?>
+</pre>
