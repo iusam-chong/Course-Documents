@@ -23,7 +23,7 @@
 				"from employee e left join employee r on r.managerId = e.id " .
 				"group by e.id order by e.lastName, e.firstName";
 		try {
-			$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+			$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;", $dbuser, $dbpass);	
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$stmt = $dbh->query($sql); 
 			while ($emp = $stmt->fetch(PDO::FETCH_OBJ)) {  

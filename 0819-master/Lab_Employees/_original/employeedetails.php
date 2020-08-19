@@ -26,7 +26,7 @@
 				"where e.id=:id group by e.lastName order by e.lastName, e.firstName";
 
 		try {
-			$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+			$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;", $dbuser, $dbpass);	
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$stmt = $dbh->prepare($sql);  
 			$stmt->bindParam("id", $_GET[id]);
