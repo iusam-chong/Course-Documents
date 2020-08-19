@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php
-$dbh = new PDO("mysql:host=localhost;dbname=class", "root", "password");
+$dbh = new PDO("mysql:host=localhost;dbname=class", "root", "root");
 $dbh->exec("SET CHARACTER SET utf8");
 if (isset($_GET["id"]))
   $id = $_GET["id"];
