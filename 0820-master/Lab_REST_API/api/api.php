@@ -4,7 +4,8 @@
 
 $method = $_SERVER['REQUEST_METHOD'];
 $url = explode("/", rtrim($_GET["url"], "/") );
-
+// print_r($url) ;
+// exit ();
 $dbLink = @mysqli_connect("localhost", "root", "root") or die(mysqli_connect_error());
 mysqli_query($dbLink, "set names utf8");
 mysqli_select_db($dbLink, "apiDB");
@@ -47,11 +48,11 @@ function getProducts() {
     global $dbLink;
     $result = mysqli_query($dbLink, 
       "select * from products");
-    echo "[";
     while ($row = mysqli_fetch_assoc($result)) {
-        echo json_encode($row);
+        //echo json_encode($row, true);
+        $datalist[] = $row ;
     }
-    echo "]";
+    echo json_encode($datalist, true);
 }
 
 
