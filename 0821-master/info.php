@@ -1,6 +1,6 @@
 <?php
     $username = "JOHM" ;
-    print 'Name: $username' ;
+     'Name: $username' ;
     phpinfo() ;
 
 ?>
